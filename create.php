@@ -24,9 +24,13 @@
 
             if(isset($_POST['contactCreate'])){
                 if(contactCreate()){
-                    echo alert("Contact is created");
+                    storeAlertMessage("create","Contact is created");
+                    echo redirect('create.php');
                 }
             }
+
+            echo showAlertMessage("create");
+
 
             ?>
 
@@ -35,11 +39,13 @@
                     <form action="" method="post">
                         <div class="mb-3">
                             <label class="form-label">Contact Name</label>
-                            <input type="text" name="name" class="form-control form-control-lg">
+                            <input type="text" name="name" value="<?= old('name') ?>" class="form-control form-control-lg" >
+                            <?= showErrorMessage('name'); ?>
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Phone Number</label>
-                            <input type="number" name="phone" class="form-control form-control-lg">
+                            <input type="number" name="phone" value="<?= old('phone') ?>" class="form-control form-control-lg" >
+                            <?= showErrorMessage('phone'); ?>
                         </div>
                         <div class="mt-4">
                             <button class="btn btn-lg btn-primary d-block w-100" name="contactCreate">

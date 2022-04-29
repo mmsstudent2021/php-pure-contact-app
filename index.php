@@ -24,10 +24,12 @@
 
             if(isset($_POST['contactDelete'])){
                 if(contactDelete()){
-                    echo alert("Contact is deleted","danger");
+                    storeAlertMessage("contact","Contact is deleted");
+                    echo redirect();
                 }
             }
 
+            echo showAlertMessage("contact");
             ?>
             <ul class="list-group">
                 <?php foreach (contacts() as $contact): ?>
