@@ -38,12 +38,17 @@
                         <p class="mb-0"><?= $contact->name ?></p>
                         <p class="mb-0 small text-black-50"><?= $contact->phone ?></p>
                     </div>
-                    <form action="" method="post">
-                        <input type="hidden" name="id" value="<?= $contact->id ?>">
-                        <button class="btn btn-sm btn-outline-danger" name="contactDelete">
-                            <i class="fa-regular fa-trash-alt"></i>
-                        </button>
-                    </form>
+                    <div class="">
+                        <a href="edit.php?id=<?= $contact->id ?>" class="btn btn-sm btn-outline-primary">
+                            <i class="fa-solid fa-fw fa-pencil-alt"></i>
+                        </a>
+                        <form class="d-inline-block" action="" method="post">
+                            <input type="hidden" name="id" value="<?= $contact->id ?>">
+                            <button class="btn btn-sm btn-outline-danger" name="contactDelete">
+                                <i class="fa-solid fa-fw fa-trash-alt"></i>
+                            </button>
+                        </form>
+                    </div>
                 </li>
                 <?php endforeach; ?>
 
